@@ -1,0 +1,31 @@
+{
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aku105/express-handlebars.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "express3-handlebars": "^0.5.2",
+    "mongodb": "*"
+  },
+  "dev_dependencies": {},
+  "name": "express-handlebars-tutorial",
+  "bugs": {
+    "url": "https://github.com/aku105/express-handlebars/issues"
+  },
+  "homepage": "https://github.com/aku105/express-handlebars#readme",
+  "version": "0.0.1",
+  "description": "Stuff created while learning express and handlebars",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "handlebars",
+    "express"
+  ],
+  "author": "Amit"
+}
