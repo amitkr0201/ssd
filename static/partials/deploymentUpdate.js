@@ -16,10 +16,14 @@ templates['deploymentUpdate'] = template({"1":function(container,depth0,helpers,
     + "</td>\r\n    <td>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.objective : depth0)) != null ? stack1.components : stack1), depth0))
     + "</td>\r\n    <td>"
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.objective : depth0)) != null ? stack1.target : stack1), depth0))
+    + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.objective : depth0)) != null ? stack1.target : stack1),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</td>\r\n    <td>"
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.objective : depth0)) != null ? stack1.time : stack1), depth0))
     + "</td>\r\n  </tr>\r\n";
+},"2":function(container,depth0,helpers,partials,data) {
+    return "\r\n      "
+    + container.escapeExpression(container.lambda(depth0, depth0))
+    + "\r\n    ";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
