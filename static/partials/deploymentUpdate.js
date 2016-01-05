@@ -21,7 +21,8 @@ templates['deploymentUpdate'] = template({"1":function(container,depth0,helpers,
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.objective : depth0)) != null ? stack1.time : stack1), depth0))
     + "</td>\r\n  </tr>\r\n";
 },"2":function(container,depth0,helpers,partials,data) {
-    return container.escapeExpression(container.lambda(depth0, depth0));
+    return container.escapeExpression(container.lambda(depth0, depth0))
+    + "</br>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
