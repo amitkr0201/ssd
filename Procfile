@@ -1,1 +1,2 @@
-web: node start.js
+worker: npm install -g nodemon
+web: nodemon start.js

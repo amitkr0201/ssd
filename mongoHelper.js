@@ -1,7 +1,7 @@
 var mongodb = require("mongodb");
 
 var MongoClient = mongodb.MongoClient;
-var url = "mongodb://localhost:27017/phased-deploy";
+var url = node.env.MONGOLAB_URI || "mongodb://localhost:27017/phased-deploy";
 function saveToMongo(input,cb){
 	MongoClient.connect(url, function (err, db) {
 		if (err) {
