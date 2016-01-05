@@ -107,4 +107,4 @@ router.post('/add', function (req, res) {
 app.set('x-powered-by',false);
 app.use('/ssd/',router);
 
-app.listen(8082);
+app.listen(80);
