@@ -1,0 +1,28 @@
+table{
+	border-style: solid;
+	border-radius: 2px;
+}
+td{
+	border-style: none solid;
+	border-bottom: medium solid;
+	border-top: medium solid;
+	text-align: left top;
+}
+th{
+	border-style: none solid;
+	border-bottom: medium solid;
+	border-top: medium solid;
+	font-weight: bolder;
+}
+td.Running{
+	text-transform: capitalize;
+	background-color: #00FFFF;
+}
+td.failure{
+	text-transform: capitalize;
+	background-color: #FF0000;
+}
+td.success{
+	text-transform: capitalize;
+	background-color: #00FF00;
+}

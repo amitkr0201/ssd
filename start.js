@@ -8,7 +8,6 @@ var app = express(),
 
 app.use(bodyParser.json());
 app.use('/ssd/static',express.static('static'));
-app.use('/ssd/partials',express.static('views/partials'));
 
 // Create reverse each
 var hbs = handlebars.create({

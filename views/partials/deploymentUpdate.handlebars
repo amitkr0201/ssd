@@ -1,0 +1,9 @@
+{{#reverse deployments}}
+  <tr class="deployments {{this.deployment_id}}" id="{{this._modifiedTime}}">
+    <td class="{{this._status}}">{{this._status}}</td>
+    <td>{{this.deployment_id}}</td>
+    <td>{{this.objective.components}}</td>
+    <td>{{this.objective.target}}</td>
+    <td>{{this.objective.time}}</td>
+  </tr>
+{{/reverse}}
