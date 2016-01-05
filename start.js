@@ -43,7 +43,6 @@ router.get('/modify',function(req,res){
   res.render('modify');
 });
 
-
 router.param('epoch', function (req, res, next, epoch) {
   console.log("request to ssd/fetchafter " + epoch);
   imongo.fetchAfter(epoch, function(err, data){
