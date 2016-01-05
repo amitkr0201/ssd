@@ -38,9 +38,9 @@ router.get('/',function(req,res){
   });
 });
 
-router.get('/temp',function(req,res){
+router.get('/modify',function(req,res){
   console.log("staring temp page");
-  res.render('temp');
+  res.render('modify');
 });
 
 
