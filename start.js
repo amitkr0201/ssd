@@ -1,12 +1,49 @@
 var express = require('express'),
   imongo = require('./mongoHelper.js'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  handlebars = require('express3-handlebars');
 
 var app = express(),
   router = express.Router();
 
 app.use(bodyParser.json());
 app.use('/ssd/static',express.static('static'));
+app.use('/ssd/partials',express.static('views/partials'));
+
+// Create reverse each
+var hbs = handlebars.create({
+    helpers: {
+        reverse: function( collection, options ){
+                  	var result = '';
+                  	for( var i = collection.length - 1; i >= 0; i-- ){
+                  		result += options.fn( collection[i] );
+                  	}
+                  	return result;
+                  }
+    }
+});
+
+app.engine('handlebars',hbs.engine);
+app.set('view engine','handlebars');
+
+router.get('/',function(req,res){
+  console.log("staring monitor page");
+  imongo.fetchAfter(0, function(err, data){
+    if (err){
+      res.status(500).send("Error while startup. Refresh page to try again.");
+    }
+    var op = {
+      deployments: data
+    };
+    res.render('index',op);
+  });
+});
+
+router.get('/temp',function(req,res){
+  console.log("staring temp page");
+  res.render('temp');
+});
+
 
 router.param('epoch', function (req, res, next, epoch) {
   console.log("request to ssd/fetchafter " + epoch);
@@ -14,14 +51,13 @@ router.param('epoch', function (req, res, next, epoch) {
     if (err){
       next(err);
     }
-    console.log("data fetched " + JSON.stringify(data));
     req.op = data;
     next();
   });
 });
 
 router.get('/fetchAfter/:epoch', function (req, res) {
-    res.jsonp(req.op);
+  res.jsonp(req.op)
 });
 
 router.put('/update/:deployment_id/:deployment_status', function (req, res) {
