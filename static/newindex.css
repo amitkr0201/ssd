@@ -1,0 +1,99 @@
+ol{
+  list-style: outside none none;
+  padding: 0px;
+}
+div.environment{
+  position: relative;
+  float: left;
+  font-family: trebuchet ms;
+  font-size: 17px;
+  font-weight: bolder;
+  width: 33%
+}
+div.lastUpdate{
+  float: left;
+  width:40%;
+  text-transform: capitalize;
+}
+.running{
+  background: #00ffff none repeat scroll 0 0;
+  color: black;
+}
+.success{
+  background: #00ff00 none repeat scroll 0 0;
+  color: black;
+}
+.failure{
+  background: #ff0000 none repeat scroll 0 0;
+  color: white;
+}
+.aborted{
+  background: #d3d3d3 none repeat scroll 0 0;
+  color: black;
+}
+.deployment{
+  border-radius: 10px;
+  border-style: hidden;
+  margin: 2px auto;
+  position: relative;
+  text-align: left;
+  width: 60%;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+li{
+  padding-left: 0px;
+  overflow: hidden;
+}
+.component.header{
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+.components{
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+li.component{
+  border-bottom:thin solid black;
+
+}
+div.component{
+  position: relative;
+  margin: auto;
+}
+div.paramName{
+  float: left;
+  width: 25%;
+}
+div.paramDesc{
+  float: left;
+  width:47%;
+  height: auto;
+}
+div.paramArtifact{
+  margin-left: 80%;
+  width: 20%;
+}
+div.moreInfo{
+  display: none;
+}
+div.deployment_id{
+  float: left;
+  width: 48%;
+
+}
+div.startTime{
+  float: left;
+  width: 48%;
+
+}
+div.stackInfo{
+
+}
+div.endTime{
+
+}
+span.title{
+  font-weight: bold;
+}

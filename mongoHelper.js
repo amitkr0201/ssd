@@ -80,7 +80,8 @@ function fetchAfter(epoch, cb){
 	} else {
 		var collection = db.collection("deployments");
 
-		collection.find({ "_modifiedTime": { $gt : Number(epoch) }}, { "sort": "_modifiedTime", "limit": 10 }).toArray(function (err, result) {
+//		collection.find({ "_modifiedTime": { $gt : Number(epoch) }}, { "sort": [['_modifiedTime', 'desc']], "limit": 10 }).toArray(function (err, result) {
+		collection.find({ "_modifiedTime": { $gt : Number(epoch) }}).sort({ _modifiedTime: -1}).limit(10).toArray(function (err, result) {			
 			if (err) {
 				err.errormessage = err.errmsg;
 				cb(err,null);
