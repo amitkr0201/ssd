@@ -23,7 +23,7 @@ templates['newDeploymentUpdate'] = template({"1":function(container,depth0,helpe
     + alias2(alias1((depth0 != null ? depth0.deployment_id : depth0), depth0))
     + "\">\r\n    <div class=\"deployment_id\"><span class=\"title\">Deployment ID:</span> "
     + alias2(alias1((depth0 != null ? depth0.deployment_id : depth0), depth0))
-    + "</div>\r\n    <div class=\"stackInfo\"><span class=\"title\">Stack #:</span> stack-1234.tar</div>\r\n    <div class=\"startTime\"><span class=\"title\">Start time:</span> "
+    + "</div>\r\n    <div class=\"stackInfo\"><span class=\"title\">Stack #:</span>WIP</div>\r\n    <div class=\"startTime\"><span class=\"title\">Start time:</span> "
     + alias2(alias1((depth0 != null ? depth0._createdTime : depth0), depth0))
     + "</div>\r\n    <div class=\"endTime\"><span class=\"title\">End time:</span> "
     + alias2(alias1((depth0 != null ? depth0._modifiedTime : depth0), depth0))
@@ -31,7 +31,7 @@ templates['newDeploymentUpdate'] = template({"1":function(container,depth0,helpe
 },"2":function(container,depth0,helpers,partials,data) {
     return "    <li class=\"component\">\r\n      <div class=\"component paramName\">"
     + container.escapeExpression(container.lambda(depth0, depth0))
-    + "</div>\r\n      <div class=\"component paramDesc\">Junk text</div>\r\n      <div class=\"component paramArtifact\">N/A</div>\r\n    </li>\r\n";
+    + "</div>\r\n      <div class=\"component paramDesc\">WIP</div>\r\n      <div class=\"component paramArtifact\">WIP</div>\r\n    </li>\r\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
