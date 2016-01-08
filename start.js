@@ -80,7 +80,7 @@ router.put('/update/:deployment_id/:deployment_status', function (req, res) {
     req.result = "deployment_id not provided";
     res.status(Number(req.httpStatus)).send(req.result);
   };
-  if ( deployment_status != "failure"  && deployment_status != "success" ){
+  if ( deployment_status != "failure"  && deployment_status != "success" && deployment_status != "aborted" ){
     req.httpStatus = 404;
     req.result = "Correct deployment_status not provided.";
     res.status(Number(req.httpStatus)).send(req.result);
