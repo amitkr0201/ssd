@@ -11,15 +11,23 @@ function getNewDeployments(){
         var counter = $('#container>li').first().attr('id');
         $.getJSON("/ssd/fetchAfter/" + counter,function(data){
           for (var i = 0; i < data.length; i++){
+            console.log($('.'+data[i].deployment_id).length);
             var tempDeployment = [data[i]];
             var newop = {
               deployments: tempDeployment
             };
-            var newHtml = template(newop);
-            $('.'+data[i].deployment_id).remove();
-            $('#container').prepend(newHtml);
-            $('.'+data[i].deployment_id).hide();
-            $('.'+data[i].deployment_id).show('slow');
+            if ( $('.'+data[i].deployment_id).length > 0 ){
+              console.log("in if");
+              var newHtml = template(newop);
+              $('.'+data[i].deployment_id).addClass("removed").one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
+                $(this).remove();
+                $('#container').prepend(newHtml);
+              });
+            }else{
+              console.log("in else");
+              var newHtml = template(newop);
+              $('#container').prepend(newHtml);
+            }
           }
         });
       },5000);

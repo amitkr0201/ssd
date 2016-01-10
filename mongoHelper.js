@@ -23,7 +23,7 @@ function saveToMongo(input,cb){
 				cb(err);
 				console.log(err.errormessage);
 			} else {
-					console.log("Inserted "+ result.result.ok+ " documents into collection. The documents inserted is: " + JSON.stringify(result.ops));
+					console.log("Inserted "+ result.result.ok+ " document into collection. The document inserted is: " + JSON.stringify(result.ops));
 					cb(null);
 			}
 			db.close();
@@ -80,7 +80,7 @@ function fetchAfter(epoch, cb){
 	} else {
 		var collection = db.collection("deployments");
 
-		collection.find({ "_modifiedTime": { $gt : Number(epoch) }}).sort({ _modifiedTime: -1}).limit(10).toArray(function (err, result) {			
+		collection.find({ "_modifiedTime": { $gt : Number(epoch) }}).sort({ _modifiedTime: -1}).limit(10).toArray(function (err, result) {
 			if (err) {
 				err.errormessage = err.errmsg;
 				cb(err,null);

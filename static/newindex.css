@@ -1,19 +1,9 @@
+html{
+  position: relative;
+}
 ol{
   list-style: outside none none;
   padding: 0px;
-}
-div.environment{
-  position: relative;
-  float: left;
-  font-family: trebuchet ms;
-  font-size: 17px;
-  font-weight: bolder;
-  width: 33%
-}
-div.lastUpdate{
-  float: left;
-  width:40%;
-  text-transform: capitalize;
 }
 .running{
   background: #00ffff none repeat scroll 0 0;
@@ -31,23 +21,102 @@ div.lastUpdate{
   background: #d3d3d3 none repeat scroll 0 0;
   color: black;
 }
-.deployment{
+div.environment{
+  float: left;
+  font-family: trebuchet ms;
+  font-size: 17px;
+  font-weight: bolder;
+  width: 33%
+}
+div.lastUpdate{
+  float: left;
+  width:40%;
+}
+li.deployment{
   border-radius: 10px;
-  border-style: hidden;
   margin: 2px auto;
-  position: relative;
-  text-align: left;
   width: 60%;
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
+  transition: all 0.5s ease 0s;
+  -webkit-animation: 0.5s cubic-bezier(0.14, 0.25, 0.52, 1.56) 0s normal forwards 1 running new-item-animation;
+  -o-animation: 0.5s cubic-bezier(0.14, 0.25, 0.52, 1.56) 0s normal forwards 1 running new-item-animation;
+  animation: 0.5s cubic-bezier(0.14, 0.25, 0.52, 1.56) 0s normal forwards 1 running new-item-animation;
+}
+
+li.removed{
+  -webkit-animation: removed-item-animation 1s linear;
+  -o-animation: removed-item-animation 1s linear;
+  animation: removed-item-animation 1s linear;
+  -webkit-transform-origin: 390px 100%;
+  -ms-transform-origin: 390px 100%;
+  -o-transform-origin: 390px 100%;
+  transform-origin: 390px 100%
+}
+
+@keyframes new-item-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(300px);
+    -ms-transform: translateX(300px);
+    -o-transform: translateX(300px);
+    transform: translateX(300px)
+  }
+
+  70% {
+    opacity: 1;
+    -webkit-transform: translateX(-50px);
+    -ms-transform: translateX(-50px);
+    -o-transform: translateX(-50px);
+    transform: translateX(-50px)
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0)
+  }
+}
+
+@keyframes removed-item-animation {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0) rotateZ(0);
+    -ms-transform: translateX(0) rotateZ(0);
+    -o-transform: translateX(0) rotateZ(0);
+    transform: translateX(0) rotateZ(0)
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: translateX(-400px) rotateZ(0);
+    -ms-transform: translateX(-400px) rotateZ(0);
+    -o-transform: translateX(-400px) rotateZ(0);
+    transform: translateX(-400px) rotateZ(0)
+  }
+
+  75% {
+    opacity: 1;
+    -webkit-transform: translateX(-420px) rotateZ(-30deg);
+    -ms-transform: translateX(-420px) rotateZ(-30deg);
+    -o-transform: translateX(-420px) rotateZ(-30deg);
+    transform: translateX(-420px) rotateZ(-30deg)
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-800px) rotateZ(-60deg)  translateY(400px);
+    -ms-transform: translateX(-800px) rotateZ(-60deg)  translateY(400px);
+    -o-transform: translateX(-800px) rotateZ(-60deg)  translateY(400px);
+    transform: translateX(-800px) rotateZ(-60deg)  translateY(400px)
+  }
 }
 li{
   padding-left: 0px;
   overflow: hidden;
 }
 .component.header{
-  padding-bottom: 5px;
   font-weight: bold;
 }
 .components{
@@ -56,7 +125,7 @@ li{
 }
 li.component{
   border-bottom:thin solid black;
-
+  padding-bottom: 2px;
 }
 div.component{
   position: relative;
@@ -64,12 +133,13 @@ div.component{
 }
 div.paramName{
   float: left;
-  width: 25%;
+  width: 27%;
+  padding-right: 1px;
+  word-break: break-all;
 }
 div.paramDesc{
   float: left;
   width:47%;
-  height: auto;
 }
 div.paramArtifact{
   margin-left: 80%;
@@ -96,4 +166,7 @@ div.endTime{
 }
 span.title{
   font-weight: bold;
+}
+span.capitalize{
+  text-transform: capitalize;
 }

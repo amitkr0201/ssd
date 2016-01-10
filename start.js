@@ -106,7 +106,7 @@ router.post('/add', function (req, res) {
 
 		imongo.saveToMongo(inputJSON,function(err){
 			if(err){
-        res.status(404).send("Error saving input data");
+        res.status(404).send("Error saving input data. Error is: " + err.errormessage );
 			} else {
         res.status(200).send("OK");
 			}
