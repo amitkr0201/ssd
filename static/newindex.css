@@ -148,11 +148,11 @@ div.paramArtifact{
 div.moreInfo > div{
   visibility: visible;
   opacity: 1;
-  transition: height 1.5s ease 0s, opacity 0.2s linear 1.5s;
+  transition: height 1.0s ease 0s, opacity 0.2s linear 1.0s;
   height: 19px;
 }
 div.hidden > div{
-  transition: height 1.5s ease 0.2s, opacity 0.2s linear 0s;
+  transition: height 1.0s ease 0.2s, opacity 0.2s linear 0s;
   height: 0;
   opacity: 0;
 }
