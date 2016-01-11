@@ -145,8 +145,17 @@ div.paramArtifact{
   margin-left: 80%;
   width: 20%;
 }
-div.moreInfo{
-  display: none;
+div.moreInfo > div{
+  visibility: visible;
+  opacity: 1;
+  transition: all 1.5s ease 0s;
+  height: auto;
+}
+div.hidden > div{
+  transition: all 1.5s ease 0s;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
 }
 div.deployment_id{
   float: left;

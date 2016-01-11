@@ -11,7 +11,7 @@ templates['newDeploymentUpdate'] = template({"1":function(container,depth0,helpe
     + alias2(alias1((depth0 != null ? depth0._modifiedTime : depth0), depth0))
     + "\">\r\n  <div onclick=\"$('#"
     + alias2(alias1((depth0 != null ? depth0.deployment_id : depth0), depth0))
-    + "').toggle('slow');\">\r\n    <div class=\"environment\"><span class=\"title\">Environment:</span> "
+    + "').toggleClass('hidden');\">\r\n    <div class=\"environment\"><span class=\"title\">Environment:</span> "
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.objective : depth0)) != null ? stack1.target : stack1), depth0))
     + "</div>\r\n    <div class=\"lastUpdate\"><span class=\"title\">Last Updated:</span> "
     + alias2(alias1((depth0 != null ? depth0._modifiedTime : depth0), depth0))
@@ -19,7 +19,7 @@ templates['newDeploymentUpdate'] = template({"1":function(container,depth0,helpe
     + alias2(alias1((depth0 != null ? depth0._status : depth0), depth0))
     + "</span></div>\r\n    <ol class=\"components\">\r\n      <li class=\"component header\">\r\n        <div class=\"component paramName\">Parameter(s)</div>\r\n        <div class=\"component paramDesc\">Description</div>\r\n        <div class=\"component paramArtifact\">Artifact ID</div>\r\n      </li>\r\n"
     + ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.objective : depth0)) != null ? stack1.components : stack1),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "    </ol>\r\n  </div>\r\n  <div class=\"moreInfo\" id=\""
+    + "    </ol>\r\n  </div>\r\n  <div class=\"moreInfo hidden\" id=\""
     + alias2(alias1((depth0 != null ? depth0.deployment_id : depth0), depth0))
     + "\">\r\n    <div class=\"deployment_id\"><span class=\"title\">Deployment ID:</span> "
     + alias2(alias1((depth0 != null ? depth0.deployment_id : depth0), depth0))
