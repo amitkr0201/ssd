@@ -18,7 +18,6 @@ function saveToMongo(input,cb){
 
 			collection.insert([input], function (err, result) {
 			if (err) {
-
 				err.errormessage = err.errmsg;
 				cb(err);
 				console.log(err.errormessage);

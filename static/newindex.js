@@ -1,5 +1,14 @@
 function getNewDeployments(){
     $.getJSON('/ssd/fetchAfter/0' ,function(output){
+      for (var j = 0; j < output.length; j++){
+        output[j]._modifiedTimeStamp = new Date(output[j]._modifiedTime).toLocaleFormat();
+        output[j]._createdTimeStamp = new Date(output[j]._createdTime).toLocaleFormat();
+        if ( output[j]._status.toLowerCase() != "running"){
+          output[j]._endTimeStamp = new Date(output[j]._modifiedTime).toLocaleFormat();
+        }else{
+          output[j]._endTimeStamp = "N/A"
+        }
+      }
       var op = {
         deployments: output
       };
@@ -11,20 +20,24 @@ function getNewDeployments(){
         var counter = $('#container>li').first().attr('id');
         $.getJSON("/ssd/fetchAfter/" + counter,function(data){
           for (var i = 0; i < data.length; i++){
-            console.log($('.'+data[i].deployment_id).length);
+            data[i]._modifiedTimeStamp = new Date(data[i]._modifiedTime).toLocaleFormat();
+            data[i]._createdTimeStamp = new Date(data[i]._createdTime).toLocaleFormat();
+            if ( data[i]._status.toLowerCase() != "running"){
+              data[i]._endTimeStamp = new Date(data[i]._modifiedTime).toLocaleFormat();
+            }else{
+              data[i]._endTimeStamp = "N/A"
+            }
             var tempDeployment = [data[i]];
             var newop = {
               deployments: tempDeployment
             };
             if ( $('.'+data[i].deployment_id).length > 0 ){
-              console.log("in if");
               var newHtml = template(newop);
               $('.'+data[i].deployment_id).addClass("removed").one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (e) {
                 $(this).remove();
                 $('#container').prepend(newHtml);
               });
             }else{
-              console.log("in else");
               var newHtml = template(newop);
               $('#container').prepend(newHtml);
             }
