@@ -10,11 +10,11 @@
         <div class="component paramDesc">Description</div>
         <div class="component paramArtifact">Artifact ID</div>
       </li>
-      {{#each this.objective.components}}
+      {{#each this.components}}
       <li class="component">
-        <div class="component paramName">{{this}}</div>
-        <div class="component paramDesc">WIP</div>
-        <div class="component paramArtifact">WIP</div>
+        <div class="component paramName">{{this.parameter}}</div>
+        <div class="component paramDesc">{{this.description}}</div>
+        <div class="component paramArtifact">{{this.artifact}}</div>
       </li>
       {{/each}}
     </ol>

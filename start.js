@@ -23,6 +23,7 @@ var hbs = handlebars.create({
     }
 });
 
+// app.engine('handlebars',handlebars);
 app.engine('handlebars',hbs.engine);
 app.set('view engine','handlebars');
 

@@ -8,9 +8,10 @@ router.param('epoch', function (req, res, next, epoch) {
     if (err){
       next(err);
     }
-    // data = JSON.parse(data);
 
-    for (var i=0; i<data.length;i++){
+    // Customize JSON
+    for (var i = 0; i<data.length;i++){
+      // Add stack data
       if ( data[i].stack != undefined ){
         if (data[i].stack.artefact != undefined ){
           data[i].stackInfo = data[i].stack.artefact;
@@ -19,6 +20,21 @@ router.param('epoch', function (req, res, next, epoch) {
         }
       } else {
         data[i].stackInfo = "No Stack";
+      }
+
+      // Add artifact data
+      data[i].components = [];
+      for (var j = 0; j<data[i].objective.components.length;j++){
+        tempComponent = {};
+        tempComponent.parameter = data[i].objective.components[j];
+        tempComponent.description = "WIP";
+        if ( data[i].artefacts[data[i].objective.components[j]] != undefined ){
+          tempComponent.artifact = data[i].artefacts[data[i].objective.components[j]].artefact;
+        } else {
+          tempComponent.artifact = "No artifact";
+        }
+        console.log("i::: " + tempComponent)
+        data[i].components.push(tempComponent);
       }
     }
     req.op = data;
