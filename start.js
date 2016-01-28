@@ -1,9 +1,7 @@
 var express = require('express'),
   bodyParser = require('body-parser'),
   handlebars = require('express3-handlebars'),
-  router = require ('./router.js'),
-  fs = require('fs'),
-  path = require('path');
+  router = require ('./router.js');
 
 var app = express();
 
