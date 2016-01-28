@@ -35,7 +35,6 @@ div.lastUpdate{
 li.deployment{
   border-radius: 10px;
   margin: 2px auto;
-  width: 60%;
   padding: 10px;
   transition: all 0.5s ease 0s;
   -webkit-animation: 0.5s cubic-bezier(0.14, 0.25, 0.52, 1.56) 0s normal forwards 1 running new-item-animation;
@@ -43,6 +42,16 @@ li.deployment{
   animation: 0.5s cubic-bezier(0.14, 0.25, 0.52, 1.56) 0s normal forwards 1 running new-item-animation;
 }
 
+@media screen and (max-width: 1366px){
+  .deployment{
+    width: 89%;
+  }
+}
+@media screen and (min-width: 1367px){
+  .deployment{
+    width: 70%;
+  }
+}
 li.removed{
   -webkit-animation: removed-item-animation 1s linear;
   -o-animation: removed-item-animation 1s linear;

@@ -5,8 +5,6 @@ var express = require('express'),
 router.post('/', function (req, res) {
   var inputJSON = req.body;
   if ( inputJSON.deployment_id != undefined ){
-		inputJSON._id=inputJSON.deployment_id;
-		inputJSON._status="running";
 
 		imongo.saveToMongo(inputJSON,function(err){
 			if(err){

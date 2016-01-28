@@ -9,25 +9,59 @@ function saveToMongo(input,cb){
 			console.log("Unable to connect to the mongoDB server. Error:", err);
 			cb(err);
 		} else {
+			var params = db.collection("parameters");
 			var collection = db.collection("deployments");
 
-			// Add created and modified time
+			// Add custom fields
 			var currentEpoch = (new Date).getTime();
 			input._createdTime = currentEpoch;
 			input._modifiedTime = currentEpoch;
+			input._id = input.deployment_id;
+			input._status = "running";
 
-			collection.insert([input], function (err, result) {
-			if (err) {
-				err.errormessage = err.errmsg;
-				cb(err);
-				console.log(err.errormessage);
+			if ( input.stack != undefined ){
+				if (input.stack.artefact != undefined ){
+					input.stackInfo = input.stack.artefact;
+				} else {
+					input.stackInfo = "No Stack";
+				}
 			} else {
-					console.log("Inserted "+ result.result.ok+ " document into collection. The document inserted is: " + JSON.stringify(result.ops));
-					cb(null);
+				input.stackInfo = "No Stack";
 			}
-			db.close();
-		});
-  }
+
+			// Getting all descriptions
+			params.find({}).toArray(function (err, output) {
+				input.components = [];
+				for (var j = 0; j<input.objective.components.length;j++){
+	        tempComponent = {};
+	        tempComponent.parameter = input.objective.components[j];
+	        if ( input.artefacts[input.objective.components[j]] != undefined ){
+	          tempComponent.artifact = input.artefacts[input.objective.components[j]].artefact;
+	        } else {
+	          tempComponent.artifact = "No artifact";
+	        }
+					tempComponent.description = "";
+					for (var k = 0; k<output.length;k++){
+						if (output[k].param == tempComponent.parameter ){
+							tempComponent.description = output[k].desc;
+						}
+					}
+					input.components.push(tempComponent);
+	      }
+
+				collection.insert([input], function (err, result) {
+					if (err) {
+						err.errormessage = err.errmsg;
+						cb(err);
+						console.log(err.errormessage);
+					} else {
+							console.log("Inserted "+ result.result.ok+ " document into collection. The document inserted is: " + JSON.stringify(result.ops));
+							cb(null);
+					}
+					db.close();
+				});
+			});
+  	}
 	});
 };
 
