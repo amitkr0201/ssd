@@ -12,3 +12,6 @@ patch:
   'npm:uglify-js:20151024':
     - express3-handlebars > handlebars > uglify-js:
         patched: '2018-02-20T11:43:09.306Z'
+  'npm:uglify-js:20150824':
+    - express3-handlebars > handlebars > uglify-js:
+        patched: '2018-02-20T11:46:53.136Z'
