@@ -8,7 +8,8 @@
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "express3-handlebars": "^0.5.2",
-    "mongodb": "*"
+    "mongodb": "*",
+    "snyk": "^1.69.7"
   },
   "dev_dependencies": {},
   "name": "express-handlebars-tutorial",
@@ -20,12 +21,15 @@
   "description": "Stuff created while learning express and handlebars",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "nodejs",
     "handlebars",
     "express"
   ],
-  "author": "Amit"
+  "author": "Amit",
+  "snyk": true
 }
